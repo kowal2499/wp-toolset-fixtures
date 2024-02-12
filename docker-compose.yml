@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  service-php:
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
+      args:
+        GITHUB_TOKEN: ${GITHUB_TOKEN}
+    restart: 'no'
+    volumes:
+      - .:/usr/src/app

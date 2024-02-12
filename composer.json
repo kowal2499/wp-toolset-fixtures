@@ -1,0 +1,16 @@
+{
+    "name": "erla/wp-toolset-fixtures",
+    "description": "Fixtures using wp-cli",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Erla\\WpToolsetFixtures\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Roman Kowalski"
+        }
+    ],
+    "require": {}
+}
