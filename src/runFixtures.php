@@ -25,7 +25,7 @@ foreach ($args as $arg) {
 }
 
 // clear all
-WP_CLI::runcommand('site empty --yes --allow-root');
+\WP_CLI::runcommand('site empty --yes --allow-root');
 
 // do scaffold
 $vault = new IdVault();
