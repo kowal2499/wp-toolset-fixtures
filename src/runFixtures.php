@@ -2,13 +2,14 @@
 namespace Erla\WpToolsetFixtures;
 use Erla\WpToolsetFixtures\Creator\MenuCreator;
 use Erla\WpToolsetFixtures\Creator\PagesCreator;
+use Erla\WpToolsetFixtures\Creator\PostsCreator;
 use Erla\WpToolsetFixtures\Creator\TermsCreator;
 use Erla\WpToolsetFixtures\Vault\IdVault;
 
 require '../vendor/autoload.php';
 
 // process cmd line arguments
-$supportedKeys = ['pages', 'terms', 'menus'];
+$supportedKeys = ['posts', 'pages', 'terms', 'menus'];
 $argumentsMap = [];
 foreach ($args as $arg) {
     list($key, $path) = explode('=', $arg);
@@ -32,12 +33,16 @@ $vault = new IdVault();
 
 $creators = [
     [
-        'creator' => new PagesCreator($vault),
-        'feed' => $argumentsMap['pages']
-    ],
-    [
         'creator' => new TermsCreator($vault),
         'feed' => $argumentsMap['terms']
+    ],
+    [
+        'creator' => new PostsCreator($vault),
+        'feed' => $argumentsMap['posts']
+    ],
+    [
+        'creator' => new PagesCreator($vault),
+        'feed' => $argumentsMap['pages']
     ],
     [
         'creator' => new MenuCreator($vault),
